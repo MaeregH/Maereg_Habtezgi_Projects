@@ -1,56 +1,93 @@
-# Customer Segmentation using K-Means Clustering
-Overview
+# Customer Segmentation Using K-Means Clustering
 
-This project performs customer segmentation on a credit card customer dataset using unsupervised machine learning. The goal is to identify distinct groups of customers based on their spending behavior, balance patterns, and credit usage, without relying on predefined labels.
+## Overview
+This project performs **customer segmentation** on a credit card customer dataset using **unsupervised machine learning**. The goal is to identify distinct groups of customers based on their spending behavior, balance patterns, and credit usage, without relying on predefined labels.
 
-By applying K-Means clustering and Principal Component Analysis (PCA), the project uncovers meaningful customer segments that can be used for business insights such as targeted marketing, risk assessment, and customer profiling.
+By applying **K-Means clustering** and **Principal Component Analysis (PCA)**, the project uncovers meaningful customer segments that can be used for business insights such as targeted marketing, risk assessment, and customer profiling.
 
-Dataset
+---
 
+## Dataset
 The dataset contains anonymized credit card customer information, including:
 
-Account balance
-
-Purchase amounts and frequency
-
-Cash advance behavior
-
-Credit limits
-
-Payment behavior
-
-Various usage frequency metrics
+- Account balance  
+- Purchase amounts and frequency  
+- Cash advance behavior  
+- Credit limits  
+- Payment behavior  
+- Usage frequency metrics  
 
 Each row represents a customer, and all features are numerical.
 
-Methodology
-1. Data Preprocessing
+---
 
-The dataset is inspected for structure and data types.
+## Methodology
 
-Features are standardized using StandardScaler to ensure all variables contribute equally to distance calculations, which is essential for K-Means clustering.
+### 1. Data Preprocessing
+- Inspected dataset structure and data types
+- Standardized all features using `StandardScaler`
+- Ensured fair distance calculations for K-Means clustering
 
-2. Selecting the Number of Clusters
+---
 
-The Elbow Method is used to determine a suitable number of clusters.
+### 2. Selecting the Number of Clusters
+- Used the **Elbow Method** to evaluate different cluster counts
+- Plotted inertia (within-cluster sum of squares) versus number of clusters
+- Selected **8 clusters** based on the elbow point
 
-K-Means is run for multiple values of k, and inertia (within-cluster sum of squares) is plotted.
+---
 
-Based on the elbow point, 8 clusters are selected.
+### 3. K-Means Clustering
+- Applied K-Means with the selected number of clusters
+- Assigned each customer a cluster label
+- Transformed cluster centroids back to the original feature scale for interpretation
 
-3. K-Means Clustering
+---
 
-K-Means is applied with the chosen number of clusters.
+### 4. Cluster Analysis
+- Combined cluster labels with the original dataset
+- Visualized feature distributions for each cluster
+- Identified behavioral patterns such as:
+  - High spenders
+  - Low-usage customers
+  - High cash-advance users
+  - Customers carrying large balances
 
-Each customer is assigned a cluster label.
+---
 
-Cluster centroids are transformed back to the original scale for interpretability.
+### 5. Dimensionality Reduction and Visualization
+- Reduced feature space to two dimensions using **PCA**
+- Visualized customers in PCA space colored by cluster assignment
+- Assessed separation and structure of customer segments
 
-4. Cluster Analysis
+---
 
-Cluster labels are merged with the original dataset.
+## Results
+The model identifies several distinct customer segments with different financial behaviors. These insights can support:
 
-Feature distributions are visualized using histograms to analyze behavioral patterns within each cluster.
+- Targeted marketing strategies
+- Credit risk assessment
+- Customer value analysis
+- Data-driven decision-making
+
+---
+
+## Technologies Used
+- Python  
+- NumPy  
+- Pandas  
+- Scikit-learn  
+- Matplotlib  
+- Seaborn  
+
+---
+
+## How to Run
+
+1. Clone the repository
+2. Install required dependencies:
+   ```bash
+   pip install numpy pandas scikit-learn matplotlib seaborn
 
 This step helps identify distinct customer profiles such as:
 
